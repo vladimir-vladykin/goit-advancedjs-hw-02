@@ -4,6 +4,7 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 let userSelectedDate = null;
+const dateInput = document.querySelector('#datetime-picker');
 const startButton = document.querySelector('button[data-start]');
 const daysField = document.querySelector('span[data-days]');
 const hoursField = document.querySelector('span[data-hours]');
@@ -64,7 +65,8 @@ function isDateInPast(date) {
 }
 
 function startTimer() {
-  // TODO make UI disabled
+  // interface unavailable while timer is active
+  setInterfaceSealed(true);
 
   const intervalId = setInterval(() => {
     let timeLeft = calculateMsLeftToSelectedDate();
@@ -76,7 +78,8 @@ function startTimer() {
       // we're done with timer, no need for more iterations
       clearInterval(intervalId);
 
-      // TODO make UI enabled
+      // interface available again
+      setInterfaceSealed(false);
     }
 
     updateTimeLeftUI(convertMs(timeLeft));
@@ -107,6 +110,11 @@ function showInvalidDateMessage() {
   iziToast.show({
     message: 'Please choose a date in the future',
   });
+}
+
+function setInterfaceSealed(isSealed) {
+  dateInput.disabled = isSealed;
+  startButton.disabled = isSealed;
 }
 
 function convertMs(ms) {
