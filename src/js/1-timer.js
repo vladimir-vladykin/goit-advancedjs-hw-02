@@ -94,16 +94,14 @@ function calculateMsLeftToSelectedDate() {
 }
 
 function updateTimeLeftUI({ days, hours, minutes, seconds }) {
-  // TODO remove
-  console.log(
-    `Days ${days}, Hours ${hours}, Minutes ${minutes}, Seconds ${seconds}`
-  );
+  daysField.textContent = addLeadingZero(days);
+  hoursField.textContent = addLeadingZero(hours);
+  minutesField.textContent = addLeadingZero(minutes);
+  secondsField.textContent = addLeadingZero(seconds);
+}
 
-  // TODO better formatting
-  daysField.textContent = days;
-  hoursField.textContent = hours;
-  minutesField.textContent = minutes;
-  secondsField.textContent = seconds;
+function addLeadingZero(number) {
+  return number.toString().padStart(2, '0');
 }
 
 function showInvalidDateMessage() {
