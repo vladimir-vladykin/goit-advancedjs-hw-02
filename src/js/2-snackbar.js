@@ -27,13 +27,11 @@ function launchPromise(delay, shouldPromiseBeFulfilled) {
 
   promise
     .then(value => {
-      console.log(value); // "Success! Value passed to resolve function"
       iziToast.show({
         message: value,
       });
     })
     .catch(error => {
-      console.log(error); // "Error! Error passed to reject function"
       iziToast.show({
         message: error,
       });

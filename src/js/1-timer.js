@@ -25,7 +25,6 @@ function setup() {
     minuteIncrement: 1,
     onClose(selectedDates) {
       userSelectedDate = selectedDates[0];
-      console.log(userSelectedDate);
 
       updateStartButton();
       if (isDateInPast(userSelectedDate)) {
