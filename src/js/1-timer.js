@@ -106,6 +106,9 @@ function addLeadingZero(number) {
 function showInvalidDateMessage() {
   iziToast.show({
     message: 'Please choose a date in the future',
+    messageColor: 'white',
+    position: 'topRight',
+    backgroundColor: '#ef4040',
   });
 }
 

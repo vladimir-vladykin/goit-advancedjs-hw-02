@@ -29,11 +29,17 @@ function launchPromise(delay, shouldPromiseBeFulfilled) {
     .then(value => {
       iziToast.show({
         message: value,
+        messageColor: 'white',
+        position: 'topRight',
+        backgroundColor: '#59a10d',
       });
     })
     .catch(error => {
       iziToast.show({
         message: error,
+        messageColor: 'white',
+        position: 'topRight',
+        backgroundColor: '#ef4040',
       });
     });
 }
